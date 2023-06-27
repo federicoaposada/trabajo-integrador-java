@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "ec834947-1f47-45c2-b0a4-92394e7e9d0c",
+		"name": "parcialPractica-con-Spring",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24628475"
+	},
+	"item": [
+		{
+			"name": "Obtener Cartilla",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/cartilla/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cartilla",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar por apellido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cartilla/busqueda/?apellido=miquere",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cartilla",
+						"busqueda",
+						""
+					],
+					"query": [
+						{
+							"key": "apellido",
+							"value": "miquere"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insertar Odontologos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"matricula\" : 129,\r\n    \"nombre\" : \"pablo\",\r\n    \"apellido\" : \"vidal\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cartilla/nuevo-registro/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cartilla",
+						"nuevo-registro",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Odontologo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/cartilla/eliminar/?id=7",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cartilla",
+						"eliminar",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

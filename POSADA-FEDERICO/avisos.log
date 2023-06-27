@@ -1,0 +1,152 @@
+[2023-06-05 02:02:58] [ERROR] [OdontologoDAOH2:105] Valor Invalido "1" para el parametro "parameterIndex"
+Invalid value "1" for parameter "parameterIndex" [90008-214]
+[2023-06-05 02:23:45] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 4
+[2023-06-05 02:23:45] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Gazza, Elias> agregado al registro. Se le asignó el ID: 5
+[2023-06-05 02:23:45] [ERROR] [OdontologoService:48] El número de matrícula debe estar entre 0 y 10000
+[2023-06-05 02:23:45] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 6
+[2023-06-05 02:23:45] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 1
+[2023-06-05 02:23:45] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Gazza, Elias> agregado al registro. Se le asignó el ID: 2
+[2023-06-05 02:23:45] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 3
+[2023-06-05 02:23:45] [INFO ] [OdontologoDAOArray:34] Se agregó <Garay, Cacho> al registro. Se le asignó el ID: 1
+[2023-06-05 02:23:45] [INFO ] [OdontologoDAOArray:34] Se agregó <Declay, Larry> al registro. Se le asignó el ID: 2
+[2023-06-05 02:23:45] [INFO ] [OdontologoDAOArray:34] Se agregó <Vidal, Pablo> al registro. Se le asignó el ID: 3
+[2023-06-05 02:23:45] [INFO ] [OdontologoDAOArray:34] Se agregó <Garay, Cacho> al registro. Se le asignó el ID: 1
+[2023-06-05 02:23:45] [INFO ] [OdontologoDAOArray:34] Se agregó <Declay, Larry> al registro. Se le asignó el ID: 2
+[2023-06-05 02:23:45] [INFO ] [OdontologoDAOArray:34] Se agregó <Vidal, Pablo> al registro. Se le asignó el ID: 3
+[2023-06-05 02:24:14] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 1
+[2023-06-05 02:24:14] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Gazza, Elias> agregado al registro. Se le asignó el ID: 2
+[2023-06-05 02:24:14] [ERROR] [OdontologoService:48] El número de matrícula debe estar entre 0 y 10000
+[2023-06-05 02:24:14] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 3
+[2023-06-05 02:24:14] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 1
+[2023-06-05 02:24:14] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Gazza, Elias> agregado al registro. Se le asignó el ID: 2
+[2023-06-05 02:24:14] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 3
+[2023-06-05 02:24:14] [INFO ] [OdontologoDAOArray:34] Se agregó <Garay, Cacho> al registro. Se le asignó el ID: 1
+[2023-06-05 02:24:14] [INFO ] [OdontologoDAOArray:34] Se agregó <Declay, Larry> al registro. Se le asignó el ID: 2
+[2023-06-05 02:24:14] [INFO ] [OdontologoDAOArray:34] Se agregó <Vidal, Pablo> al registro. Se le asignó el ID: 3
+[2023-06-05 02:24:14] [INFO ] [OdontologoDAOArray:34] Se agregó <Garay, Cacho> al registro. Se le asignó el ID: 1
+[2023-06-05 02:24:14] [INFO ] [OdontologoDAOArray:34] Se agregó <Declay, Larry> al registro. Se le asignó el ID: 2
+[2023-06-05 02:24:14] [INFO ] [OdontologoDAOArray:34] Se agregó <Vidal, Pablo> al registro. Se le asignó el ID: 3
+[2023-06-05 02:24:33] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 1
+[2023-06-05 02:24:33] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Gazza, Elias> agregado al registro. Se le asignó el ID: 2
+[2023-06-05 02:24:33] [ERROR] [OdontologoService:48] El número de matrícula debe estar entre 0 y 10000
+[2023-06-05 02:24:33] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 3
+[2023-06-05 02:24:33] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 1
+[2023-06-05 02:24:33] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Gazza, Elias> agregado al registro. Se le asignó el ID: 2
+[2023-06-05 02:24:33] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 3
+[2023-06-05 02:24:33] [INFO ] [OdontologoDAOArray:34] Se agregó <Garay, Cacho> al registro. Se le asignó el ID: 1
+[2023-06-05 02:24:33] [INFO ] [OdontologoDAOArray:34] Se agregó <Declay, Larry> al registro. Se le asignó el ID: 2
+[2023-06-05 02:24:33] [INFO ] [OdontologoDAOArray:34] Se agregó <Vidal, Pablo> al registro. Se le asignó el ID: 3
+[2023-06-05 02:24:33] [INFO ] [OdontologoDAOArray:34] Se agregó <Garay, Cacho> al registro. Se le asignó el ID: 1
+[2023-06-05 02:24:33] [INFO ] [OdontologoDAOArray:34] Se agregó <Declay, Larry> al registro. Se le asignó el ID: 2
+[2023-06-05 02:24:33] [INFO ] [OdontologoDAOArray:34] Se agregó <Vidal, Pablo> al registro. Se le asignó el ID: 3
+[2023-06-05 02:38:20] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 1
+[2023-06-05 02:38:20] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Gazza, Elias> agregado al registro. Se le asignó el ID: 2
+[2023-06-05 02:38:20] [ERROR] [OdontologoService:48] El número de matrícula debe estar entre 0 y 10000
+[2023-06-05 02:38:20] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 3
+[2023-06-05 02:38:20] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 1
+[2023-06-05 02:38:20] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Gazza, Elias> agregado al registro. Se le asignó el ID: 2
+[2023-06-05 02:38:20] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 3
+[2023-06-05 02:38:20] [INFO ] [OdontologoDAOArray:34] Se agregó <Garay, Cacho> al registro. Se le asignó el ID: 1
+[2023-06-05 02:38:20] [INFO ] [OdontologoDAOArray:34] Se agregó <Declay, Larry> al registro. Se le asignó el ID: 2
+[2023-06-05 02:38:20] [INFO ] [OdontologoDAOArray:34] Se agregó <Vidal, Pablo> al registro. Se le asignó el ID: 3
+[2023-06-05 02:38:20] [INFO ] [OdontologoDAOArray:34] Se agregó <Garay, Cacho> al registro. Se le asignó el ID: 1
+[2023-06-05 02:38:20] [INFO ] [OdontologoDAOArray:34] Se agregó <Declay, Larry> al registro. Se le asignó el ID: 2
+[2023-06-05 02:38:20] [INFO ] [OdontologoDAOArray:34] Se agregó <Vidal, Pablo> al registro. Se le asignó el ID: 3
+[2023-06-05 15:23:33] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 1
+[2023-06-05 15:23:33] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Gazza, Elias> agregado al registro. Se le asignó el ID: 2
+[2023-06-05 15:23:33] [ERROR] [OdontologoService:48] El número de matrícula debe estar entre 0 y 10000
+[2023-06-05 15:23:33] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 3
+[2023-06-05 15:23:33] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 1
+[2023-06-05 15:23:33] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Gazza, Elias> agregado al registro. Se le asignó el ID: 2
+[2023-06-05 15:23:33] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 3
+[2023-06-05 15:23:33] [INFO ] [OdontologoDAOArray:34] Se agregó <Garay, Cacho> al registro. Se le asignó el ID: 1
+[2023-06-05 15:23:33] [INFO ] [OdontologoDAOArray:34] Se agregó <Declay, Larry> al registro. Se le asignó el ID: 2
+[2023-06-05 15:23:33] [INFO ] [OdontologoDAOArray:34] Se agregó <Vidal, Pablo> al registro. Se le asignó el ID: 3
+[2023-06-05 15:23:33] [INFO ] [OdontologoDAOArray:34] Se agregó <Garay, Cacho> al registro. Se le asignó el ID: 1
+[2023-06-05 15:23:33] [INFO ] [OdontologoDAOArray:34] Se agregó <Declay, Larry> al registro. Se le asignó el ID: 2
+[2023-06-05 15:23:33] [INFO ] [OdontologoDAOArray:34] Se agregó <Vidal, Pablo> al registro. Se le asignó el ID: 3
+[2023-06-05 15:39:52] [ERROR] [OdontologoDAOH2:73] Table "ODONTOLOGOS" not found (this database is empty); SQL statement:
+SELECT * FROM ODONTOLOGOS [42104-214]
+[2023-06-05 15:39:58] [ERROR] [OdontologoDAOH2:73] Table "ODONTOLOGOS" not found (this database is empty); SQL statement:
+SELECT * FROM ODONTOLOGOS [42104-214]
+[2023-06-05 15:40:16] [ERROR] [OdontologoDAOH2:105] Table "ODONTOLOGOS" not found (this database is empty); SQL statement:
+SELECT * FROM ODONTOLOGOS WHERE APELLIDO=? [42104-214]
+[2023-06-05 15:48:36] [ERROR] [db:31] La base de datos puede que ya esté siendo utilizada: "C:/Users/gazza/examen-con-spring.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/gazza/examen-con-spring.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2023-06-05 15:58:39] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 33
+[2023-06-05 16:06:01] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 34
+[2023-06-05 16:06:01] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Gazza, Elias> agregado al registro. Se le asignó el ID: 35
+[2023-06-05 16:06:01] [ERROR] [OdontologoService:52] El número de matrícula debe estar entre 0 y 10000
+[2023-06-05 16:06:01] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 36
+[2023-06-05 16:06:01] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 1
+[2023-06-05 16:06:01] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Gazza, Elias> agregado al registro. Se le asignó el ID: 2
+[2023-06-05 16:06:01] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 3
+[2023-06-05 16:06:35] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 1
+[2023-06-05 16:06:35] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Gazza, Elias> agregado al registro. Se le asignó el ID: 2
+[2023-06-05 16:06:35] [ERROR] [OdontologoService:52] El número de matrícula debe estar entre 0 y 10000
+[2023-06-05 16:06:35] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 3
+[2023-06-05 16:06:36] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 1
+[2023-06-05 16:06:36] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Gazza, Elias> agregado al registro. Se le asignó el ID: 2
+[2023-06-05 16:06:36] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 3
+[2023-06-05 16:06:53] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 1
+[2023-06-05 16:06:53] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Gazza, Elias> agregado al registro. Se le asignó el ID: 2
+[2023-06-05 16:06:53] [ERROR] [OdontologoService:52] El número de matrícula debe estar entre 0 y 10000
+[2023-06-05 16:06:53] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 3
+[2023-06-05 16:06:53] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 1
+[2023-06-05 16:06:53] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Gazza, Elias> agregado al registro. Se le asignó el ID: 2
+[2023-06-05 16:06:53] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 3
+[2023-06-05 16:06:59] [ERROR] [OdontologoDAOH2:73] Table "ODONTOLOGOS" not found (this database is empty); SQL statement:
+SELECT * FROM ODONTOLOGOS [42104-214]
+[2023-06-05 16:12:19] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 33
+[2023-06-05 16:26:40] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 34
+[2023-06-05 22:09:44] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 35
+[2023-06-05 22:09:44] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Gazza, Elias> agregado al registro. Se le asignó el ID: 36
+[2023-06-05 22:09:44] [ERROR] [OdontologoService:44] El número de matrícula debe estar entre 0 y 10000
+[2023-06-05 22:09:44] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 37
+[2023-06-05 22:09:44] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 1
+[2023-06-05 22:09:44] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Gazza, Elias> agregado al registro. Se le asignó el ID: 2
+[2023-06-05 22:09:44] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 3
+[2023-06-06 00:38:37] [ERROR] [OdontologoDAOH2:73] Table "ODONTOLOGOS" not found (this database is empty); SQL statement:
+SELECT * FROM ODONTOLOGOS [42104-214]
+[2023-06-06 00:48:16] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 6
+[2023-06-06 00:50:36] [ERROR] [OdontologoService:44] El número de matrícula debe estar entre 0 y 10000
+[2023-06-06 00:52:38] [ERROR] [OdontologoService:44] El número de matrícula debe estar entre 0 y 10000
+[2023-06-06 00:54:18] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <123, Marcos> agregado al registro. Se le asignó el ID: 7
+[2023-06-06 00:57:01] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <123, Marcos> agregado al registro. Se le asignó el ID: 8
+[2023-06-06 01:44:55] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Miquere, Ger> agregado al registro. Se le asignó el ID: 9
+[2023-06-06 01:48:22] [WARN ] [OdontologoDAOH2:132] Se eliminó al odontólogo con ID: 8
+[2023-06-06 01:52:43] [WARN ] [OdontologoDAOH2:132] Se eliminó al odontólogo con ID: 7
+[2023-06-06 01:56:47] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 10
+[2023-06-06 01:56:47] [WARN ] [OdontologoDAOH2:132] Se eliminó al odontólogo con ID: 7
+[2023-06-06 01:58:20] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 11
+[2023-06-06 01:58:20] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Gazza, Elias> agregado al registro. Se le asignó el ID: 12
+[2023-06-06 01:58:20] [ERROR] [OdontologoService:49] El número de matrícula debe estar entre 0 y 10000
+[2023-06-06 01:58:20] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 13
+[2023-06-06 01:58:20] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Amado, Marcos> agregado al registro. Se le asignó el ID: 1
+[2023-06-06 01:58:20] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Gazza, Elias> agregado al registro. Se le asignó el ID: 2
+[2023-06-06 01:58:20] [INFO ] [OdontologoDAOH2:40] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 3
+[2023-06-07 22:04:18] [ERROR] [OdontologoDAOH2:45] Table "ODONTOLOGOS" not found (this database is empty); SQL statement:
+INSERT INTO ODONTOLOGOS (MATRICULA, NOMBRE, APELLIDO) VALUES(?, ?, ?) [42104-214]
+[2023-06-07 22:04:57] [ERROR] [OdontologoDAOH2:45] Table "ODONTOLOGOS" not found (this database is empty); SQL statement:
+INSERT INTO ODONTOLOGOS (MATRICULA, NOMBRE, APELLIDO) VALUES(?, ?, ?) [42104-214]
+[2023-06-07 22:06:56] [ERROR] [OdontologoDAOH2:45] Table "ODONTOLOGOS" not found (this database is empty); SQL statement:
+INSERT INTO ODONTOLOGOS (MATRICULA, NOMBRE, APELLIDO) VALUES(?, ?, ?) [42104-214]
+[2023-06-07 22:07:11] [ERROR] [OdontologoDAOH2:45] Table "ODONTOLOGOS" not found (this database is empty); SQL statement:
+INSERT INTO ODONTOLOGOS (MATRICULA, NOMBRE, APELLIDO) VALUES(?, ?, ?) [42104-214]
+[2023-06-07 22:15:56] [INFO ] [OdontologoDAOH2:41] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 1
+[2023-06-07 22:16:00] [INFO ] [OdontologoDAOH2:41] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 2
+[2023-06-07 22:16:01] [INFO ] [OdontologoDAOH2:41] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 3
+[2023-06-07 22:16:03] [INFO ] [OdontologoDAOH2:41] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 4
+[2023-06-07 22:16:04] [INFO ] [OdontologoDAOH2:41] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 5
+[2023-06-07 22:16:05] [INFO ] [OdontologoDAOH2:41] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 6
+[2023-06-07 22:16:09] [INFO ] [OdontologoDAOH2:41] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 7
+[2023-06-07 22:16:14] [ERROR] [OdontologoService:50] El número de matrícula debe estar entre 0 y 10000
+[2023-06-07 22:16:22] [INFO ] [OdontologoDAOH2:41] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 8
+[2023-06-07 22:16:29] [INFO ] [OdontologoDAOH2:41] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 9
+[2023-06-07 22:19:06] [INFO ] [OdontologoDAOH2:41] Se modificó 1 fila/s. <Vidal, 1> agregado al registro. Se le asignó el ID: 10
+[2023-06-07 22:19:15] [INFO ] [OdontologoDAOH2:41] Se modificó 1 fila/s. <Vidal, 1> agregado al registro. Se le asignó el ID: 11
+[2023-06-07 22:20:58] [ERROR] [OdontologoService:51] El número de matrícula debe estar entre 0 y 10000
+[2023-06-07 23:07:17] [INFO ] [OdontologoDAOH2:41] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 12
+[2023-06-07 23:07:21] [INFO ] [OdontologoDAOH2:41] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 13
+[2023-06-07 23:07:28] [INFO ] [OdontologoDAOH2:41] Se modificó 1 fila/s. <Vidal, Pablo> agregado al registro. Se le asignó el ID: 14
+[2023-06-07 23:43:16] [INFO ] [OdontologoDAOH2:41] Se modificó 1 fila/s. <Houuse, Digital> agregado al registro. Se le asignó el ID: 15
