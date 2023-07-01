@@ -17,10 +17,16 @@ import lombok.Setter;
 @Entity
 public class Odontologo {
 
+  public Odontologo(Integer matricula, String nombre, String apellido) {
+    this.matricula = matricula;
+    this.nombre = nombre;
+    this.apellido = apellido;
+  }
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
-  private int matricula;
+  private Integer matricula;
   private String nombre;
   private String apellido;
   private String sueldo;
