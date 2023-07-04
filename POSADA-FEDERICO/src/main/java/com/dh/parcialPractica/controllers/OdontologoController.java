@@ -23,58 +23,76 @@ public class OdontologoController {
     this.odontologoService = odontologoService;
   }
 
-  // Obtener todos los odontólogos
   @GetMapping
-  public ResponseEntity<List<OdontologoDto>> obtenerTodos() {
-    List<OdontologoDto> odontologos = odontologoService.obtenerTodosLosOdontologos();
-    return new ResponseEntity<>(odontologos, HttpStatus.OK);
+  public ResponseEntity<?> obtenerTodosLosOdontologos() {
+    try {
+      List<OdontologoDto> odontologos = odontologoService.obtenerTodosLosOdontologos();
+      return new ResponseEntity<>(odontologos, HttpStatus.OK);
+    } catch (NotFoundException exception) {
+      ClinicaErrorResponse errorResponse = new ClinicaErrorResponse(exception.getCodigoError(), exception.getMessage());
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
+    }
   }
 
-  // Crear un nuevo odontólogo
   @PostMapping
   public ResponseEntity<?> guardarOdontologo(@RequestBody OdontologoDto odontologoDto) {
     try {
       OdontologoDto odontologo = odontologoService.guardarOdontologo(odontologoDto);
       return new ResponseEntity<>(odontologo, HttpStatus.CREATED);
     } catch (BadRequestException exception) {
-      ClinicaErrorResponse errorResponse = new ClinicaErrorResponse(exception.getCodigoError(), exception.getMensaje());
+      ClinicaErrorResponse errorResponse = new ClinicaErrorResponse(exception.getCodigoError(), exception.getMessage());
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
     } catch (Exception exception) {
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
   }
 
-  // Modificar los atributos de un odontólogo existente
   @PutMapping("/{id}")
   public ResponseEntity<?> modificarOdontologo(@PathVariable Integer id, @RequestBody OdontologoDto odontologoDto) {
     try {
       OdontologoDto odontologo = odontologoService.modificarOdontologo(id, odontologoDto);
       return new ResponseEntity<>(odontologo, HttpStatus.OK);
-    } catch (NotFoundException e) {
-      ClinicaErrorResponse errorResponse = new ClinicaErrorResponse(e.getCodigoError(), e.getMessage());
+    } catch (NotFoundException exception) {
+      ClinicaErrorResponse errorResponse = new ClinicaErrorResponse(exception.getCodigoError(), exception.getMessage());
       return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
     }
   }
 
-  // Eliminar un odontólogo existente
   @DeleteMapping("/{id}")
-  public ResponseEntity<Void> eliminarOdontologo(@PathVariable Integer id) {
-    boolean deleted = odontologoService.eliminarOdontologo(id);
-    if (deleted) {
-      return new ResponseEntity<>(HttpStatus.OK);
-    } else {
-      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+  public ResponseEntity<?> eliminarOdontologo(@PathVariable Integer id) {
+    try {
+      boolean eliminado = odontologoService.eliminarOdontologo(id);
+      if (eliminado) {
+        return ResponseEntity.ok("Odontólogo eliminado correctamente");
+      } else {
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+      }
+    } catch (NotFoundException exception) {
+      ClinicaErrorResponse errorResponse = new ClinicaErrorResponse(exception.getCodigoError(), exception.getMessage());
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
     }
   }
 
-  // Buscar un odontólogo por su ID
   @GetMapping("/{id}")
-  public ResponseEntity<OdontologoDto> buscarPorId(@PathVariable Integer id) {
+  public ResponseEntity<?> buscarPorId(@PathVariable Integer id) {
     try {
       OdontologoDto odontologo = odontologoService.buscarPorId(id);
       return new ResponseEntity<>(odontologo, HttpStatus.OK);
-    } catch (IllegalArgumentException e) {
-      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    } catch (NotFoundException exception) {
+      ClinicaErrorResponse errorResponse = new ClinicaErrorResponse(exception.getCodigoError(), exception.getMessage());
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
     }
   }
+
+  @GetMapping("/nombres")
+  public ResponseEntity<?> obtenerTodosPorNombres() {
+    try {
+      List<String> nombres = odontologoService.obtenerTodosPorNombres();
+      return new ResponseEntity<>(nombres, HttpStatus.OK);
+    } catch (NotFoundException exception) {
+      ClinicaErrorResponse errorResponse = new ClinicaErrorResponse(exception.getCodigoError(), exception.getMessage());
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
+    }
+  }
+
 }

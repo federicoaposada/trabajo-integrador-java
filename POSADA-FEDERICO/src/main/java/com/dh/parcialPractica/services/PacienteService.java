@@ -2,99 +2,123 @@ package com.dh.parcialPractica.services;
 
 import com.dh.parcialPractica.dto.PacienteDto;
 import com.dh.parcialPractica.entity.Paciente;
+import com.dh.parcialPractica.exception.BadRequestException;
+import com.dh.parcialPractica.exception.NotFoundException;
 import com.dh.parcialPractica.repository.PacienteRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class PacienteService {
 
     private final PacienteRepository pacienteRepository;
-    private final ObjectMapper mapper;
+    private final ModelMapper modelMapper;
 
     @Autowired
-    public PacienteService(PacienteRepository pacienteRepository, ObjectMapper mapper) {
+    public PacienteService(PacienteRepository pacienteRepository) {
         this.pacienteRepository = pacienteRepository;
-        this.mapper = mapper;
+        this.modelMapper = new ModelMapper();
     }
 
-    // Obtener todos los pacientes
-    public List<PacienteDto> listarPacientes() {
+    public List<PacienteDto> obtenerTodosLosPacientes() throws NotFoundException {
         try {
-            List<Paciente> listaEntidades = pacienteRepository.findAll();
-            return listaEntidades.stream()
-                    .map(paciente -> mapper.convertValue(paciente, PacienteDto.class))
+            List<Paciente> pacientes = pacienteRepository.findAll();
+            return pacientes.stream()
+                    .map(paciente -> modelMapper.map(paciente, PacienteDto.class))
                     .collect(Collectors.toList());
         } catch (Exception e) {
-            // Manejar la excepción aquí
-            // Por ejemplo, puedes lanzar una excepción personalizada, registrar el error, etc.
-            throw new RuntimeException("Error al obtener la lista de pacientes", e);
+            throw new NotFoundException("Código 201", "No se encontraron pacientes");
         }
     }
 
-    // Guardar un nuevo paciente
-    public PacienteDto guardar(PacienteDto pacienteDto) {
-        if (pacienteDto.getNombre() == null || pacienteDto.getApellido() == null) {
-            throw new IllegalArgumentException("Es ilegal dejar nombre o apellido vacío");
+    public PacienteDto guardaPaciente(PacienteDto pacienteDto) {
+        Paciente paciente = mapToEntity(pacienteDto);
+
+        if (paciente.getNombre().isEmpty() || paciente.getApellido().isEmpty()) {
+            throw new BadRequestException("Código 202", "El nombre o apellido no pueden estar vacíos");
         }
+
+        if (paciente.getFechaIngreso() != null && paciente.getFechaIngreso().isBefore(LocalDate.now())) {
+            throw new BadRequestException("Código 203", "La fecha de ingreso no puede ser anterior a la fecha actual");
+        }
+
+        validarDni(pacienteDto.getDni());
+        validarDniUnico(pacienteDto.getDni(), pacienteDto.getId());
 
         Paciente pacienteEntidad = mapToEntity(pacienteDto);
         Paciente pacienteGuardado = pacienteRepository.save(pacienteEntidad);
         return mapToDto(pacienteGuardado);
     }
 
-    // Eliminar un paciente por su id
-    public boolean eliminarPaciente(Integer id) {
-        if (!pacienteRepository.existsById(id)) {
-            throw new IllegalArgumentException("No se encontró el paciente con el ID proporcionado");
-        }
+    public PacienteDto modificarPaciente(Integer id, PacienteDto pacienteDto) throws NotFoundException {
+        Optional<Paciente> pacienteOptional = pacienteRepository.findById(id);
+        if (pacienteOptional.isPresent()) {
+            Paciente paciente = pacienteOptional.get();
+            paciente.setDni(pacienteDto.getDni());
+            paciente.setNombre(pacienteDto.getNombre());
+            paciente.setApellido(pacienteDto.getApellido());
+            paciente.setFechaIngreso(pacienteDto.getFechaIngreso());
 
+            validarDni(paciente.getDni());
+            validarDniUnico(paciente.getDni(), id);
+
+            Paciente pacienteModificado = pacienteRepository.save(paciente);
+            return modelMapper.map(pacienteModificado, PacienteDto.class);
+        } else {
+            throw new NotFoundException("Código 208", "No se encontró el paciente con el ID: " + id);
+        }
+    }
+
+    public void eliminarPaciente(Integer id) throws NotFoundException {
+        Optional<Paciente> pacienteOptional = pacienteRepository.findById(id);
+        if (pacienteOptional.isEmpty()) {
+            throw new NotFoundException("Código 208", "No se encontró el paciente con el ID: " + id);
+        }
         pacienteRepository.deleteById(id);
-        return true;
     }
 
-    // Buscar un paciente por su ID
-    public PacienteDto buscarPorId(Integer id) {
-        return pacienteRepository.findById(id)
-                .map(paciente -> mapToDto(paciente))
-                .orElseThrow(() -> new IllegalArgumentException("No se encontró el paciente con el ID proporcionado"));
+    public PacienteDto buscarPorId(Integer id) throws NotFoundException {
+        Paciente paciente = pacienteRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Código 208", "No se encontró el paciente con el ID: " + id));
+        return modelMapper.map(paciente, PacienteDto.class);
     }
 
-    // Modificar un paciente existente
-    public PacienteDto modificarPaciente(Integer id, PacienteDto pacienteDto) {
-        if (!pacienteRepository.existsById(id)) {
-            throw new IllegalArgumentException("No se encontró el paciente con el ID proporcionado");
+    public void validarDni(Integer dni) {
+        if (dni == null) {
+            throw new BadRequestException("Código 204", "El DNI no puede ser nulo");
         }
 
-        // Verificar si el paciente existe en la base de datos
-        Paciente pacienteExistente = pacienteRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("No se encontró el paciente con el ID proporcionado"));
+        if (dni <= 0) {
+            throw new BadRequestException("Código 205", "El DNI debe ser mayor a 0");
+        }
 
-        // Actualizar los campos del paciente existente con los valores del pacienteDto
-        pacienteExistente.setNombre(pacienteDto.getNombre());
-        pacienteExistente.setApellido(pacienteDto.getApellido());
-        pacienteExistente.setDni(pacienteDto.getDni());
-        pacienteExistente.setMail(pacienteDto.getMail());
+        String dniString = String.valueOf(dni);
+        if (dniString.length() < 8) {
+            throw new BadRequestException("Código 206", "El DNI debe tener al menos 8 dígitos");
+        }
 
-        // Guardar los cambios en la base de datos
-        Paciente pacienteModificado = pacienteRepository.save(pacienteExistente);
-
-        // Retornar el paciente modificado convertido a PacienteDto
-        return mapToDto(pacienteModificado);
+        if (!dniString.matches("\\d+")) {
+            throw new BadRequestException("Código 209", "El DNI debe contener solamente números");
+        }
     }
 
-    // Mapear un objeto Paciente a PacienteDto
+    public void validarDniUnico(Integer dni, Integer id) {
+        if (dni != null && pacienteRepository.existsByDniAndIdNot(dni, id)) {
+            throw new BadRequestException("Código 207", "Ya existe un paciente con el mismo DNI");
+        }
+    }
+
     private PacienteDto mapToDto(Paciente paciente) {
-        return mapper.convertValue(paciente, PacienteDto.class);
+        return modelMapper.map(paciente, PacienteDto.class);
     }
 
-    // Mapear un objeto PacienteDto a Paciente
     private Paciente mapToEntity(PacienteDto pacienteDto) {
-        return mapper.convertValue(pacienteDto, Paciente.class);
+        return modelMapper.map(pacienteDto, Paciente.class);
     }
-
 }

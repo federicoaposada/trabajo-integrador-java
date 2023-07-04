@@ -1,11 +1,15 @@
 package com.dh.parcialPractica.controllers;
 
 import com.dh.parcialPractica.dto.PacienteDto;
+import com.dh.parcialPractica.exception.BadRequestException;
+import com.dh.parcialPractica.exception.ClinicaErrorResponse;
+import com.dh.parcialPractica.exception.NotFoundException;
 import com.dh.parcialPractica.services.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -20,45 +24,61 @@ public class PacienteController {
     this.pacienteService = pacienteService;
   }
 
-  // Obtener todos los pacientes
   @GetMapping
-  public ResponseEntity<List<PacienteDto>> obtenerTodos() {
-    List<PacienteDto> pacientes = pacienteService.listarPacientes();
-    return new ResponseEntity<>(pacientes, HttpStatus.OK);
+  public ResponseEntity<?> obtenerTodosLosPacientes() {
+    try {
+      List<PacienteDto> pacientes = pacienteService.obtenerTodosLosPacientes();
+      return new ResponseEntity<>(pacientes, HttpStatus.OK);
+    } catch (NotFoundException exception) {
+      ClinicaErrorResponse errorResponse = new ClinicaErrorResponse(exception.getCodigoError(), exception.getMessage());
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
+    }
   }
 
-  // Crear un nuevo paciente
   @PostMapping
-  public ResponseEntity<PacienteDto> guardarPaciente(@RequestBody PacienteDto pacienteDto) {
-    PacienteDto paciente = pacienteService.guardar(pacienteDto);
-    return new ResponseEntity<>(paciente, HttpStatus.CREATED);
+  public ResponseEntity<?> guardarPaciente(@RequestBody PacienteDto pacienteDto) {
+    try {
+      PacienteDto paciente = pacienteService.guardaPaciente(pacienteDto);
+      return new ResponseEntity<>(paciente, HttpStatus.CREATED);
+    } catch (BadRequestException exception) {
+      ClinicaErrorResponse errorResponse = new ClinicaErrorResponse(exception.getCodigoError(), exception.getMensaje());
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+    } catch (Exception exception) {
+      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
   }
 
   @PutMapping("/{id}")
   public ResponseEntity<PacienteDto> modificarPaciente(@PathVariable Integer id, @RequestBody PacienteDto pacienteDto) {
-    PacienteDto pacienteModificado = pacienteService.modificarPaciente(id, pacienteDto);
-    if (pacienteModificado != null) {
+    try {
+      PacienteDto pacienteModificado = pacienteService.modificarPaciente(id, pacienteDto);
       return new ResponseEntity<>(pacienteModificado, HttpStatus.OK);
-    } else {
-      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    } catch (NotFoundException exception) {
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND, exception.getMessage());
+    } catch (BadRequestException exception) {
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, exception.getMessage());
     }
   }
 
-  // Eliminar un paciente existente
+
   @DeleteMapping("/{id}")
-  public ResponseEntity<Void> eliminarPaciente(@PathVariable Integer id) {
-    boolean eliminado = pacienteService.eliminarPaciente(id);
-    if (eliminado) {
-      return new ResponseEntity<>(HttpStatus.OK);
-    } else {
-      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+  public ResponseEntity<String> eliminarPaciente(@PathVariable Integer id) {
+    try {
+      pacienteService.eliminarPaciente(id);
+      return ResponseEntity.ok("Paciente eliminado correctamente");
+    } catch (NotFoundException e) {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
     }
   }
 
-  // Obtener un paciente por su ID
   @GetMapping("/{id}")
-  public ResponseEntity<PacienteDto> obtenerPorId(@PathVariable Integer id) {
-    PacienteDto paciente = pacienteService.buscarPorId(id);
-    return new ResponseEntity<>(paciente, HttpStatus.OK);
+  public ResponseEntity<PacienteDto> buscarPorId(@PathVariable Integer id) {
+    try {
+      PacienteDto paciente = pacienteService.buscarPorId(id);
+      return ResponseEntity.ok(paciente);
+    } catch (NotFoundException e) {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+    }
   }
+
 }

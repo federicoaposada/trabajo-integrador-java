@@ -5,6 +5,8 @@ import com.dh.parcialPractica.entity.Odontologo;
 import com.dh.parcialPractica.exception.BadRequestException;
 import com.dh.parcialPractica.exception.NotFoundException;
 import com.dh.parcialPractica.repository.OdontologoRepository;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,38 +18,45 @@ import java.util.stream.Collectors;
 public class OdontologoService {
 
     private final OdontologoRepository odontologoRepository;
+    private final ModelMapper modelMapper;
 
     @Autowired
     public OdontologoService(OdontologoRepository odontologoRepository) {
         this.odontologoRepository = odontologoRepository;
+        this.modelMapper = new ModelMapper();
+    }
+
+    public List<OdontologoDto> obtenerTodosLosOdontologos() throws NotFoundException {
+        List<Odontologo> odontologos = odontologoRepository.findAll();
+        if (odontologos.isEmpty()) {
+            throw new NotFoundException("Código 101", "No se encontraron odontólogos");
+        }
+        return modelMapper.map(odontologos, new TypeToken<List<OdontologoDto>>() {}.getType());
     }
 
     public OdontologoDto guardarOdontologo(OdontologoDto odontologoDto) {
         Odontologo odontologo = mapToEntity(odontologoDto);
 
-        // Verificar que el nombre y apellido no estén vacíos
         if (odontologo.getNombre().isEmpty() || odontologo.getApellido().isEmpty()) {
-            throw new BadRequestException("Código 103", "El nombre y apellido no pueden estar vacíos");
+            throw new BadRequestException("Código 102", "El nombre y apellido no pueden estar vacíos");
         }
 
-        // Verificar que el nombre y apellido tengan al menos 2 letras
-        if (odontologo.getNombre().length() < 2 || odontologo.getApellido().length() < 2) {
-            throw new BadRequestException("Código 104", "El nombre y apellido deben tener al menos 2 letras");
+        if (odontologo.getNombre().length() < 3 || odontologo.getApellido().length() < 3) {
+            throw new BadRequestException("Código 103", "El nombre y apellido deben tener al menos 2 letras");
         }
 
         odontologo.setNombre(capitalizarString(odontologo.getNombre()));
         odontologo.setApellido(capitalizarString(odontologo.getApellido()));
 
         if (odontologo.getMatricula() >= 0 && odontologo.getMatricula() <= 10000) {
-            // Verificar si ya existe un odontólogo con la misma matrícula
             if (odontologoRepository.existsByMatricula(odontologo.getMatricula())) {
-                throw new BadRequestException("Código 102", "Ya existe un odontólogo con la misma matrícula");
+                throw new BadRequestException("Código 104", "Ya existe un odontólogo con la misma matrícula");
             }
 
             Odontologo odontologoGuardado = odontologoRepository.save(odontologo);
             return mapToDto(odontologoGuardado);
         } else {
-            throw new BadRequestException("Código 101", "El número de matrícula debe estar entre 0 y 10000");
+            throw new BadRequestException("Código 105", "El número de matrícula debe estar entre 0 y 10000");
         }
     }
 
@@ -64,36 +73,23 @@ public class OdontologoService {
 
             return mapToDto(odontologoModificado);
         } else {
-            throw new NotFoundException("Código 105", "No se encontró el odontólogo con el ID: " + id);
+            throw new NotFoundException("Código 106", "No se encontró el odontólogo con el ID: " + id);
         }
     }
 
-    public List<OdontologoDto> obtenerTodosLosOdontologos() {
-        try {
-            List<Odontologo> odontologos = odontologoRepository.findAll();
-            return odontologos.stream().map(this::mapToDto).collect(Collectors.toList());
-        } catch (Exception exception) {
-            throw new RuntimeException("Error al obtener todos los odontólogos", exception);
-        }
-    }
-
-    public boolean eliminarOdontologo(Integer id) {
+    public boolean eliminarOdontologo(Integer id) throws NotFoundException {
         if (odontologoRepository.existsById(id)) {
             odontologoRepository.deleteById(id);
             return true;
         } else {
-            throw new IllegalArgumentException("No se encontró el odontólogo con el ID: " + id);
+            throw new NotFoundException("Código 106", "No se encontró el odontólogo con el ID: " + id);
         }
     }
 
-    public OdontologoDto buscarPorId(Integer id) {
+    public OdontologoDto buscarPorId(Integer id) throws NotFoundException {
         Optional<Odontologo> odontologoOptional = odontologoRepository.findById(id);
-        if (odontologoOptional.isPresent()) {
-            Odontologo odontologo = odontologoOptional.get();
-            return mapToDto(odontologo);
-        } else {
-            throw new IllegalArgumentException("No se encontró el odontólogo con el ID: " + id);
-        }
+        return odontologoOptional.map(this::mapToDto)
+                .orElseThrow(() -> new NotFoundException("Código 106", "No se encontró el odontólogo con el ID: " + id));
     }
 
     private String capitalizarString(String str) {
@@ -102,35 +98,24 @@ public class OdontologoService {
         }
         return str.substring(0, 1).toUpperCase() + str.substring(1).toLowerCase();
     }
-    
-    public List<String> obtenerTodosPorNombres() {
+
+    public List<String> obtenerTodosPorNombres() throws NotFoundException {
         try {
             return odontologoRepository.findAll()
                     .stream()
                     .map(Odontologo::getNombre)
                     .collect(Collectors.toList());
         } catch (Exception exception) {
-            throw new RuntimeException("Error al obtener todos los nombres de odontólogos", exception);
+            throw new NotFoundException("Código 107", "Error al obtener todos los nombres de odontólogos");
         }
     }
 
     private OdontologoDto mapToDto(Odontologo odontologo) {
-        OdontologoDto odontologoDto = new OdontologoDto();
-        odontologoDto.setId(odontologo.getId());
-        odontologoDto.setMatricula(odontologo.getMatricula());
-        odontologoDto.setNombre(odontologo.getNombre());
-        odontologoDto.setApellido(odontologo.getApellido());
-        odontologoDto.setSueldo(odontologo.getSueldo());
-        return odontologoDto;
+        return modelMapper.map(odontologo, OdontologoDto.class);
     }
 
     private Odontologo mapToEntity(OdontologoDto odontologoDto) {
-        Odontologo odontologo = new Odontologo();
-        odontologo.setId(odontologoDto.getId());
-        odontologo.setMatricula(odontologoDto.getMatricula());
-        odontologo.setNombre(odontologoDto.getNombre());
-        odontologo.setApellido(odontologoDto.getApellido());
-        odontologo.setSueldo(odontologoDto.getSueldo());
-        return odontologo;
+        return modelMapper.map(odontologoDto, Odontologo.class);
     }
+
 }

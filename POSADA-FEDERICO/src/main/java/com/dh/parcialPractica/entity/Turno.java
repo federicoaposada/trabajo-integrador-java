@@ -32,4 +32,5 @@ public class Turno {
   private Odontologo odontologo;
   private LocalDate fecha;
   private LocalTime hora;
+
 }

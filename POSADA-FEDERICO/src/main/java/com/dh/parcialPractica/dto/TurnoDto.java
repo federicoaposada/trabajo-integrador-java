@@ -20,15 +20,5 @@ public class TurnoDto {
   private LocalDate fecha;
   private LocalTime hora;
 
-  // Constructor
-
-  public TurnoDto(Integer id, PacienteDto paciente, OdontologoDto odontologo, LocalDate fecha, LocalTime hora) {
-    this.id = id;
-    this.paciente = paciente;
-    this.odontologo = odontologo;
-    this.fecha = fecha;
-    this.hora = hora;
-  }
-
 }
 

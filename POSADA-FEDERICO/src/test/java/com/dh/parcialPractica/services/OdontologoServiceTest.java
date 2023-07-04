@@ -2,6 +2,7 @@ package com.dh.parcialPractica.services;
 
 import com.dh.parcialPractica.dto.OdontologoDto;
 import com.dh.parcialPractica.entity.Odontologo;
+import com.dh.parcialPractica.exception.NotFoundException;
 import com.dh.parcialPractica.repository.OdontologoRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,11 +33,11 @@ public class OdontologoServiceTest {
     }
 
     @Test
-    void testObtenerNombres() {
+    void testObtenerNombres() throws NotFoundException {
         // Arrange
-        Odontologo odontologo1 = new Odontologo(1234, "John", "Doe");
-        Odontologo odontologo2 = new Odontologo(5678, "Jane", "Smith");
-        Odontologo odontologo3 = new Odontologo(9012, "Michael", "Johnson");
+        Odontologo odontologo1 = new Odontologo(1,1234, "John", "Doe", "1000000");
+        Odontologo odontologo2 = new Odontologo(2, 5678, "Jane", "Smith", "2000000");
+        Odontologo odontologo3 = new Odontologo(3, 9012, "Michael", "Johnson", "3000000");
         List<String> expectedNombres = new ArrayList<>();
         expectedNombres.add("John");
         expectedNombres.add("Jane");
@@ -53,12 +54,12 @@ public class OdontologoServiceTest {
     }
 
     @Test
-    void testObtenerOdontologos() {
+    void testObtenerOdontologos() throws NotFoundException {
         // Arrange
-        Odontologo odontologo1 = new Odontologo(1234, "John", "Doe");
-        Odontologo odontologo2 = new Odontologo(5678, "Jane", "Smith");
-        Odontologo odontologo3 = new Odontologo(9012, "Michael", "Johnson");
-        Odontologo odontologo4 = new Odontologo(3456, "David", "Brown");
+        Odontologo odontologo1 = new Odontologo(1,1234, "John", "Doe", "1000000");
+        Odontologo odontologo2 = new Odontologo(2, 5678, "Jane", "Smith", "2000000");
+        Odontologo odontologo3 = new Odontologo(3, 9012, "Michael", "Johnson", "3000000");
+        Odontologo odontologo4 = new Odontologo(4, 3456, "David", "Brown", "4000000");
         List<Odontologo> expectedOdontologos = new ArrayList<>();
         expectedOdontologos.add(odontologo1);
         expectedOdontologos.add(odontologo2);

@@ -25,7 +25,6 @@ public class TurnoController {
     this.turnoService = turnoService;
   }
 
-  // Obtener todos los turnos
   @GetMapping
   public ResponseEntity<?> obtenerTodos() {
     try {
@@ -37,7 +36,6 @@ public class TurnoController {
     }
   }
 
-  // Crear un nuevo turno
   @PostMapping
   public ResponseEntity<?> guardarTurno(@RequestBody TurnoDto turnoDto) {
     try {
@@ -55,7 +53,6 @@ public class TurnoController {
     }
   }
 
-  // Actualizar un turno existente
   @PutMapping("/{id}")
   public ResponseEntity<?> actualizarTurno(@PathVariable Integer id, @RequestBody TurnoDto turnoDto) {
     try {
@@ -70,7 +67,6 @@ public class TurnoController {
     }
   }
 
-  // Eliminar un turno existente
   @DeleteMapping("/{id}")
   public ResponseEntity<?> eliminarTurno(@PathVariable Integer id) {
     try {
@@ -86,7 +82,6 @@ public class TurnoController {
     }
   }
 
-  // Buscar un turno por su ID
   @GetMapping("/{id}")
   public ResponseEntity<?> buscarPorId(@PathVariable Integer id) {
     try {
